@@ -1,6 +1,3 @@
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
 import configparser
 import importlib.machinery
 import importlib.util
@@ -9,8 +6,8 @@ import os
 import site
 import sys
 
-from osmosis_driver_interface.constants import CONFIG_OPTION
-from osmosis_driver_interface.exceptions import ConfigError
+from metadata_driver_interface.constants import CONFIG_OPTION
+from metadata_driver_interface.exceptions import ConfigError
 
 
 def parse_config(file_path):
@@ -33,7 +30,7 @@ def parse_config(file_path):
 
 
 def start_plugin(_type, module, file_path=None):
-    """This function initialize the Osmosis plugin"""
+    """This function initialize the Driver plugin"""
     if os.getenv('CONFIG_PATH'):
         file_path = os.getenv('CONFIG_PATH')
     else:
@@ -69,10 +66,10 @@ def retrieve_module_path(_type, module, config=None):
 
         elif os.getenv('VIRTUAL_ENV') is not None:
             module_path = f'{os.getenv("VIRTUAL_ENV")}/lib/python3.{sys.version_info[1]}'\
-                f'/site-packages/osmosis_{module}_driver/{_type}_plugin.py'
+                f'/site-packages/metadata_{module}_driver/{_type}_plugin.py'
 
         else:
-            module_path = f'{site.getsitepackages()[0]}/osmosis_{module}_driver/{_type}_plugin.py'
+            module_path = f'{site.getsitepackages()[0]}/metadata_{module}_driver/{_type}_plugin.py'
 
         return module_path
     except Exception:

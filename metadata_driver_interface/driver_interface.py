@@ -1,18 +1,15 @@
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
 import logging
 
-from osmosis_driver_interface.constants import COMPUTING, DATA
-from osmosis_driver_interface.log import setup_logging
-from osmosis_driver_interface.utils import start_plugin
+from metadata_driver_interface.constants import COMPUTING, DATA
+from metadata_driver_interface.log import setup_logging
+from metadata_driver_interface.utils import start_plugin
 
 setup_logging()
-logger = logging.getLogger('Osmosis')
+logger = logging.getLogger('DriverInterface')
 
 
-class Osmosis:
-    """High-level, plugin-bound Osmosis functions.
+class DriverInterface:
+    """High-level, plugin-bound DriverInterface functions.
     Instantiated with a subclass implementing the ledger plugin
     interface (:class:`~.AbstractPlugin`) that will automatically be
     bound to all top-level functions:

@@ -3,9 +3,6 @@
 
 """The setup script."""
 
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
 from setuptools import find_packages, setup
 
 with open('README.md') as readme_file:
@@ -14,7 +11,7 @@ with open('README.md') as readme_file:
 with open('CHANGELOG.md') as history_file:
     history = history_file.read()
 
-# Installed by pip install osmosis-driver-interface
+# Installed by pip install metadata-driver-interface
 # or pip install -e .
 install_requirements = [
     'coloredlogs',
@@ -34,7 +31,7 @@ test_requirements = [
     'tox',
 ]
 
-# Possibly required by developers of osmosis-driver-interface:
+# Possibly required by developers of metadata-driver-interface:
 dev_requirements = [
     'bumpversion',
     'pkginfo',
@@ -43,8 +40,8 @@ dev_requirements = [
 ]
 
 setup(
-    author="leucothia",
-    author_email='devops@oceanprotocol.com',
+    author="nevermined-io",
+    author_email='root@nevermined.io',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -53,7 +50,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    description="💧 Osmosis driver interface. A membrane between the decentralized world and "
+    description="💧 Nevermined metadata driver interface. A membrane between the decentralized world and "
                 "centralized world.",
     extras_require={
         'test': test_requirements,
@@ -64,13 +61,13 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords='osmosis-driver-interface',
-    name='osmosis-driver-interface',
-    packages=find_packages(include=['osmosis_driver_interface']),
+    keywords='nevermined-metadata-driver-interface',
+    name='nevermined-metadata-driver-interface',
+    packages=find_packages(include=['metadata_driver_interface']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/oceanprotocol/osmosis-driver-interface',
+    url='https://github.com/nevermined-io/metadata-driver-interface',
     version='0.0.7',
     zip_safe=False,
 )

@@ -1,6 +1,3 @@
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
 from abc import ABC, abstractmethod
 
 
@@ -30,7 +27,7 @@ class AbstractPlugin(ABC):
              remote_file(str): The path of the resource manager where the file is going to be
              allocated.
          Raises:
-             :exc:`~..OsmosisError`: if the file is not uploaded correctly.
+             :exc:`~..DriverError`: if the file is not uploaded correctly.
 
         """
 
@@ -41,7 +38,7 @@ class AbstractPlugin(ABC):
              remote_file(str): The path in the resource manager of the file to download from.
              local_file(str): The path to the file to download to..
         Raises:
-             :exc:`~..OsmosisError`: if the file is not downloaded correctly.
+             :exc:`~..DriverError`: if the file is not downloaded correctly.
         """
 
     @abstractmethod
@@ -52,7 +49,7 @@ class AbstractPlugin(ABC):
         Returns:
             dict: List with the name of the file of a directory.
         Raises:
-             :exc:`~..OsmosisError`: if the directory does not exist.
+             :exc:`~..DriverError`: if the directory does not exist.
         """
 
     @abstractmethod
@@ -61,7 +58,7 @@ class AbstractPlugin(ABC):
         Args:
             remote_file(str): The path in the resource manager of the file to give access.
         Raises:
-             :exc:`~..OsmosisError`: if the file does not exist or if the action could not be done.
+             :exc:`~..DriverError`: if the file does not exist or if the action could not be done.
         """
 
     @abstractmethod
@@ -70,7 +67,7 @@ class AbstractPlugin(ABC):
         Args:
              remote_file(str): The path in the resource manager of the file to delete..
         Raises:
-             :exc:`~..OsmosisError`: if the path does not exist or if the action could not be done.
+             :exc:`~..DriverError`: if the path does not exist or if the action could not be done.
         """
 
     @abstractmethod
@@ -80,7 +77,7 @@ class AbstractPlugin(ABC):
              source_path(str): The path of the file to be copied.
              dest_path(str): The destination path where the file is going to be allocated.
          Raises:
-             :exc:`~..OsmosisError`: if the file is not uploaded correctly.
+             :exc:`~..DriverError`: if the file is not uploaded correctly.
         """
 
     @abstractmethod
@@ -89,7 +86,7 @@ class AbstractPlugin(ABC):
         Args:
             remote_folder(str): The path of the remote directory
         Raises:
-             :exc:`~..OsmosisError`: if the directory already exists.
+             :exc:`~..DriverError`: if the directory already exists.
         """
 
     @abstractmethod

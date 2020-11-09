@@ -1,6 +1,3 @@
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
 from abc import ABC, abstractmethod
 
 
@@ -28,7 +25,7 @@ class AbstractPlugin(ABC):
         """Create a container/instance to compute an algorithm inside.
          Args:
          Raises:
-             :exc:`~..OsmosisError`: the vm could not be created with this arguments.
+             :exc:`~..DriverError`: the vm could not be created with this arguments.
 
         """
 
@@ -38,7 +35,7 @@ class AbstractPlugin(ABC):
         Args:
             instance_name(str): The container/instance name
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance does not exist.
+             :exc:`~..DriverError`: if the container/instance does not exist.
         """
 
     @abstractmethod
@@ -47,7 +44,7 @@ class AbstractPlugin(ABC):
         Args:
              instance_name(str): The container/instance name
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance could not be stopped.
+             :exc:`~..DriverError`: if the container/instance could not be stopped.
         """
 
     @abstractmethod
@@ -57,7 +54,7 @@ class AbstractPlugin(ABC):
              instance_name(str): The container/instance name
              command(str): The command that you want to run inside the container/instance
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance does not exist or if you do not
+             :exc:`~..DriverError`: if the container/instance does not exist or if you do not
              have permissions to run
              this command
         """
@@ -68,7 +65,7 @@ class AbstractPlugin(ABC):
         Args:
              instance_name(str): The container/instance name
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance does not exist.
+             :exc:`~..DriverError`: if the container/instance does not exist.
         """
 
     @abstractmethod
@@ -77,7 +74,7 @@ class AbstractPlugin(ABC):
         Args:
              instance_name(str): The container/instance name
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance does not exist.
+             :exc:`~..DriverError`: if the container/instance does not exist.
         """
 
     @abstractmethod
@@ -88,7 +85,7 @@ class AbstractPlugin(ABC):
              source_path(str): The path of the origin file.
              dest_path(str): The path of the destination.
         Raises:
-             :exc:`~..OsmosisError`: if the container/instance does not exist.
+             :exc:`~..DriverError`: if the container/instance does not exist.
         """
 
     @abstractmethod
