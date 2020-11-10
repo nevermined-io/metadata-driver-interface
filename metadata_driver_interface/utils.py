@@ -3,8 +3,8 @@ import importlib.machinery
 import importlib.util
 import logging
 import os
-import site
 import sys
+import sysconfig
 
 from metadata_driver_interface.constants import CONFIG_OPTION
 from metadata_driver_interface.exceptions import ConfigError
@@ -63,13 +63,8 @@ def retrieve_module_path(_type, module, config=None):
     try:
         if config is not None and 'module.path' in config:
             module_path = f'{config["module.path"]}/{_type}_plugin.py'
-
-        elif os.getenv('VIRTUAL_ENV') is not None:
-            module_path = f'{os.getenv("VIRTUAL_ENV")}/lib/python3.{sys.version_info[1]}'\
-                f'/site-packages/osmosis_{module}_driver/{_type}_plugin.py'
-
         else:
-            module_path = f'{site.getsitepackages()[0]}/osmosis_{module}_driver/{_type}_plugin.py'
+            module_path = f'{sysconfig.get_path("purelib")}/osmosis_{module}_driver/{_type}_plugin.py'
 
         return module_path
     except Exception:
