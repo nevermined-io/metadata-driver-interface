@@ -66,10 +66,10 @@ def retrieve_module_path(_type, module, config=None):
 
         elif os.getenv('VIRTUAL_ENV') is not None:
             module_path = f'{os.getenv("VIRTUAL_ENV")}/lib/python3.{sys.version_info[1]}'\
-                f'/site-packages/metadata_{module}_driver/{_type}_plugin.py'
+                f'/site-packages/osmosis_{module}_driver/{_type}_plugin.py'
 
         else:
-            module_path = f'{site.getsitepackages()[0]}/metadata_{module}_driver/{_type}_plugin.py'
+            module_path = f'{site.getsitepackages()[0]}/osmosis_{module}_driver/{_type}_plugin.py'
 
         return module_path
     except Exception:
