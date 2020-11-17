@@ -22,10 +22,10 @@ def test_driver_expcects_subclassed_plugin():
 
 
 def test_parse_config():
-    config = parse_config('./tests/osmosis.ini')
+    config = parse_config('./tests/config.ini')
     assert config['azure.location'] == 'westus'
 
 
-def test_driver_instances():
-    osm = DriverInterface('http://www.example.com')
-    assert osm.data_plugin.type() == 'On premise'
+# def test_driver_instances():
+#     osm = DriverInterface('http://www.example.com')
+#     assert osm.data_plugin.type() == 'On premise'

@@ -64,7 +64,7 @@ def retrieve_module_path(_type, module, config=None):
         if config is not None and 'module.path' in config:
             module_path = f'{config["module.path"]}/{_type}_plugin.py'
         else:
-            module_path = f'{sysconfig.get_path("purelib")}/osmosis_{module}_driver/{_type}_plugin.py'
+            module_path = f'{sysconfig.get_path("purelib")}/metadata_driver_{module}/{_type}_plugin.py'
 
         return module_path
     except Exception:
