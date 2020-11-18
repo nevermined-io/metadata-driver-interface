@@ -1,11 +1,8 @@
-"""Custom exceptions for Osmosis"""
+"""Custom exceptions for Driver"""
 
 
-#  Copyright 2018 Ocean Protocol Foundation
-#  SPDX-License-Identifier: Apache-2.0
-
-class OsmosisError(Exception):
-    """Base class for all Osmosis errors."""
+class DriverError(Exception):
+    """Base class for all Driver errors."""
 
 
 class ConfigError(Exception):
