@@ -63,7 +63,7 @@ setup(
     include_package_data=True,
     keywords='nevermined-metadata-driver-interface',
     name='nevermined-metadata-driver-interface',
-    packages=find_packages(include=['metadata_driver_interface']),
+    packages=find_packages(include=['metadata_driver_interface', 'metadatadb_driver_interface']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
