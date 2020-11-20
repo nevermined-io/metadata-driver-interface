@@ -45,7 +45,7 @@ def start_plugin(_type, module, file_path=None):
     return plugin_instance
 
 
-def load_plugin(_type, module='on_premise', config=None):
+def load_plugin(_type, module='onprem', config=None):
     module_path = retrieve_module_path(_type, module, config)
     if sys.version_info < (3, 5):
         from importlib.machinery import SourceFileLoader
@@ -65,7 +65,7 @@ def retrieve_module_path(_type, module, config=None):
             module_path = f'{config["module.path"]}/{_type}_plugin.py'
         else:
             module_path = f'{sysconfig.get_path("purelib")}/metadata_driver_{module}/{_type}_plugin.py'
-
+            logging.error(module_path)
         return module_path
     except Exception:
         raise ConfigError('You should provide a valid config.')

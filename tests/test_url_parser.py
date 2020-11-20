@@ -11,7 +11,7 @@ def test_parse_url_aws():
 
 
 def test_parse_url_on_premise():
-    assert DriverInterface.parse_url('http://www.example.com') == 'on_premise'
+    assert DriverInterface.parse_url('http://www.example.com') == 'onprem'
 
 
 def test_parse_url_ipfs():
