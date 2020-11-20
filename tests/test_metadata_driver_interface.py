@@ -26,6 +26,6 @@ def test_parse_config():
     assert config['azure.location'] == 'westus'
 
 
-# def test_driver_instances():
-#     osm = DriverInterface('http://www.example.com')
-#     assert osm.data_plugin.type() == 'On premise'
+def test_driver_instances():
+    osm = DriverInterface('http://www.example.com')
+    assert osm.data_plugin.type() == 'On premise'

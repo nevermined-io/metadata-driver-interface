@@ -47,7 +47,7 @@ def load_plugin(config=None):
         if 'module.path' in config:
             module_path = config['module.path']
         elif os.getenv('VIRTUAL_ENV') is not None:
-            module_path = "%s/lib/python3.%s/site-packages/metadatadb_%s_driver/plugin.py" % (
+            module_path = "%s/lib/python3.%s/site-packages/metadata_%s_driver/plugin.py" % (
                 os.getenv('VIRTUAL_ENV'), sys.version_info[1], module)
         else:
             module_path = "%s/metadatada_%s_driver/plugin.py" % (

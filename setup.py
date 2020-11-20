@@ -27,7 +27,7 @@ test_requirements = [
     'pylint',
     'pytest',
     'pytest-watch',
-    'osmosis-on-premise-driver',
+    'nevermined-metadata-driver-onprem',
     'tox',
 ]
 

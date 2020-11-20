@@ -1,6 +1,6 @@
 import logging
 
-from metadata_driver_interface.constants import COMPUTING, DATA
+from metadata_driver_interface.constants import DATA
 from metadata_driver_interface.log import setup_logging
 from metadata_driver_interface.utils import start_plugin
 
@@ -24,7 +24,6 @@ class DriverInterface:
     """
 
     def __init__(self, url, file_path=None):
-        self.computing_plugin = start_plugin(COMPUTING, self.parse_url(url), file_path)
         self.data_plugin = start_plugin(DATA, self.parse_url(url), file_path)
 
     @staticmethod
@@ -46,4 +45,4 @@ class DriverInterface:
             return 'ipfs'
         else:
             logger.info(f'Loading on_premise driver, url={url}.')
-            return 'on_premise'
+            return 'onprem'
