@@ -50,7 +50,7 @@ def load_plugin(config=None):
             module_path = "%s/lib/python3.%s/site-packages/metadata_driver_%s/plugin.py" % (
                 os.getenv('VIRTUAL_ENV'), sys.version_info[1], module)
         else:
-            module_path = "%s/metadatada_driver_%s/plugin.py" % (
+            module_path = "%s/metadata_driver_%s/plugin.py" % (
                 site.getsitepackages()[0], module)
     except Exception:
         raise ConfigError("You should provide a valid config.")
