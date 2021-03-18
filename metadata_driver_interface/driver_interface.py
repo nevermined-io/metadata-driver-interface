@@ -43,6 +43,9 @@ class DriverInterface:
         elif 'ipfs://' in url:
             logger.info(f'Loading IPFS driver, url={url}')
             return 'ipfs'
+        elif 'cid://' in url:
+            logger.info(f'Loading Filecoin driver, url={url}')
+            return 'filecoin'
         else:
             logger.info(f'Loading on_premise driver, url={url}.')
             return 'onprem'
