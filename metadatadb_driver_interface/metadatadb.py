@@ -1,3 +1,4 @@
+from metadatadb_driver_interface.constants import CONFIG_OPTION
 from metadatadb_driver_interface.utils import start_plugin
 
 
@@ -16,5 +17,5 @@ class MetadataDb:
         plugin (Plugin): Bound persistence layer plugin.
     """
 
-    def __init__(self, file_path=None):
-        self.plugin = start_plugin(file_path)
+    def __init__(self, file_path=None, config_option=CONFIG_OPTION):
+        self.plugin = start_plugin(file_path, config_option)
