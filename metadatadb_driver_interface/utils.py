@@ -9,15 +9,15 @@ from metadatadb_driver_interface.constants import CONFIG_OPTION
 from metadatadb_driver_interface.exceptions import ConfigError
 
 
-def parse_config(file_path):
+def parse_config(file_path, config_option=CONFIG_OPTION):
     """Loads the configuration file given as parameter"""
     config_parser = configparser.ConfigParser()
     config_parser.read(file_path)
     plugin_config = {}
-    options = config_parser.options(CONFIG_OPTION)
+    options = config_parser.options(config_option)
     for option in options:
         try:
-            plugin_config[option] = config_parser.get(CONFIG_OPTION, option)
+            plugin_config[option] = config_parser.get(config_option, option)
             if plugin_config[option] == -1:
                 print("skip: %s" % option)
         except Exception as e:
@@ -27,14 +27,14 @@ def parse_config(file_path):
     return plugin_config
 
 
-def start_plugin(file_path=None):
+def start_plugin(file_path=None, config_option=CONFIG_OPTION):
     """This function initialize the MetadataDB plugin"""
     if os.getenv('CONFIG_PATH'):
         file_path = os.getenv('CONFIG_PATH')
     else:
         file_path = file_path
     if file_path is not None:
-        config = parse_config(file_path)
+        config = parse_config(file_path, config_option)
         plugin_instance = load_plugin(config)
     else:
         plugin_instance = load_plugin
