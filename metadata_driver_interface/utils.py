@@ -65,7 +65,13 @@ def retrieve_module_path(_type, module, config=None):
             module_path = f'{config["module.path"]}/{_type}_plugin.py'
         else:
             module_path = f'{sysconfig.get_path("purelib")}/metadata_driver_{module}/{_type}_plugin.py'
-            logging.error(module_path)
+            # check if file exists
+            if not os.path.isfile(module_path):
+                for dir in sys.path:
+                    module_path = f'{dir}/metadata_driver_{module}/{_type}_plugin.py'
+                    if os.path.isfile(module_path):
+                        return module_path
+            logging.error(f'Cannot find module {module_path}')
         return module_path
     except Exception:
         raise ConfigError('You should provide a valid config.')
