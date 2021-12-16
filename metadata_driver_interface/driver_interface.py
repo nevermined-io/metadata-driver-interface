@@ -15,7 +15,9 @@ class DriverInterface:
     bound to all top-level functions:
         - :attr:`type` (as a read-only property)
         - :func:`upload`
+        - :func:`upload_bytes`
         - :func:`download`
+        - :func:`download_bytes`
         - :func:`list`
         - :func:`generate_url`
         - :func:`delete`

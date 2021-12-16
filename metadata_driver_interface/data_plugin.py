@@ -6,7 +6,9 @@ class AbstractPlugin(ABC):
     Expects the following to be defined by the subclass:
         - :attr:`type` (as a read-only property)
         - :func:`upload`
+        - :func:`upload_bytes`
         - :func:`download`
+        - :func:`download_bytes`
         - :func:`list`
         - :func:`generate_url`
         - :func:`delete`
@@ -32,11 +34,32 @@ class AbstractPlugin(ABC):
         """
 
     @abstractmethod
+    def upload_bytes(self, content, file_name='filename'):
+        """Uploads bytes to a remote resource manager
+         Args:
+             content(bytes): The bytes to upload
+             file_name(str): If the content is associated to a specific file name
+         Raises:
+             :exc:`~..DriverError`: if the file is not uploaded correctly.
+
+        """
+
+    @abstractmethod
     def download(self, remote_file, local_file):
         """Download file from a remote resource manager
         Args:
              remote_file(str): The path in the resource manager of the file to download from.
              local_file(str): The path to the file to download to..
+        Raises:
+             :exc:`~..DriverError`: if the file is not downloaded correctly.
+        """
+
+
+    @abstractmethod
+    def download_bytes(self, remote_file):
+        """Download a remote content and returned in the shape of bytes
+        Args:
+             remote_file(str): The path in the resource manager of the file to download from.
         Raises:
              :exc:`~..DriverError`: if the file is not downloaded correctly.
         """
