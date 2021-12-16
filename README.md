@@ -2,7 +2,7 @@
 
 # Metadata driver interface
 
-> 💧 A membrane between the decentralized world and centralized world
+> 💧 Nevermined metadata driver interface. A membrane between the decentralized and decentralized worlds
 > [nevermined.io](https://nevermined.io)
 
 [![PyPI](https://img.shields.io/pypi/v/nevermined-metadata-driver-interface.svg)](https://pypi.org/project/nevermined-metadata-driver-interface/)

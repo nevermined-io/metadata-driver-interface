@@ -43,12 +43,12 @@ setup(
     author="nevermined-io",
     author_email='root@nevermined.io',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     description="💧 Nevermined metadata driver interface. A membrane between the decentralized world and "
                 "centralized world.",
@@ -68,6 +68,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nevermined-io/metadata-driver-interface',
-    version='0.3.1',
+    version='0.4.0',
     zip_safe=False,
 )
