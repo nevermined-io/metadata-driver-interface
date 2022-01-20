@@ -71,7 +71,7 @@ def retrieve_module_path(_type, module, config=None):
                     module_path = f'{dir}/metadata_driver_{module}/{_type}_plugin.py'
                     if os.path.isfile(module_path):
                         return module_path
-            logging.error(f'Cannot find module {module_path}')
+                logging.error(f'Cannot find module {module_path}')
         return module_path
     except Exception:
         raise ConfigError('You should provide a valid config.')
