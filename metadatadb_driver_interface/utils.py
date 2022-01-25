@@ -4,6 +4,7 @@ import importlib.util
 import os
 import site
 import sys
+import sysconfig
 
 from metadatadb_driver_interface.constants import CONFIG_OPTION
 from metadatadb_driver_interface.exceptions import ConfigError
@@ -50,8 +51,7 @@ def load_plugin(config=None):
             module_path = "%s/lib/python3.%s/site-packages/metadata_driver_%s/plugin.py" % (
                 os.getenv('VIRTUAL_ENV'), sys.version_info[1], module)
         else:
-            module_path = "%s/metadata_driver_%s/plugin.py" % (
-                site.getsitepackages()[0], module)
+            module_path = retrieve_module_path(module, config)
     except Exception:
         raise ConfigError("You should provide a valid config.")
     if sys.version_info < (3, 5):
@@ -64,6 +64,22 @@ def load_plugin(config=None):
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         return mod.Plugin(config)
+
+def retrieve_module_path(module, config=None):
+    try:
+        if config is not None and 'module.path' in config:
+            module_path = f'{config["module.path"]}/plugin.py'
+        else:
+            module_path = f'{sysconfig.get_path("purelib")}/metadata_driver_{module}/plugin.py'
+            # check if file exists
+            if not os.path.isfile(module_path):
+                for dir in sys.path:
+                    module_path = f'{dir}/metadata_driver_{module}/plugin.py'
+                    if os.path.isfile(module_path):
+                        return module_path
+        return module_path
+    except Exception:
+        raise ConfigError('You should provide a valid config.')
 
 
 def get_value(value, env_var, default, config=None):
